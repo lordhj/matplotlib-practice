@@ -1,13 +1,29 @@
 import matplotlib.pyplot as plt
 import numpy as np
+
+a=np.linspace(0,10,11)
+b=a**4
 x=np.arange(0, 10)
 y=2*x
-plt.plot(x, y)
-plt.title("Simple Plot")
-plt.xlabel('X Axis')
-plt.ylabel('Y Axis')
-plt.xlim(0,10)
-plt.ylim(0,20)
-#plt.savefig('my_first_plot.png')
+fig=plt.figure()
+
+#Large Axes
+axes1=fig.add_axes([0, 0, 1, 1])
+axes1.set_xlim(0, 8)
+axes1.set_ylim(0,8000)
+axes1.set_xlabel("A")
+axes1.set_ylabel("B")
+axes1.set_title("Power of 4")
+axes1.plot(a, b)
+
+#Small Axes
+axes2=fig.add_axes([0.2, 0.2, 0.1, 0.1])
+axes1.set_xlim(1, 2)
+axes1.set_ylim(0,400)
+axes1.set_xlabel("A")
+axes1.set_ylabel("B")
+axes1.set_title("Zoomed IN")
+axes2.plot(x, y)
+
 
 plt.show()
