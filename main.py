@@ -5,27 +5,28 @@ a=np.linspace(0,10,11)
 b=a**4
 x=np.arange(0, 10)
 y=2*x
-fig=plt.figure(figsize=(3,3), dpi=100)
 
-#Large Axes
-axes1=fig.add_axes([0, 0, 1, 1])
-axes1.set_xlim(0, 10)
-axes1.set_ylim(0,10000)
-axes1.set_xlabel("A")
-axes1.set_ylabel("B")
-axes1.set_title("Power of 4")
-axes1.plot(a, b)
 
-#Small Axes
-axes2=fig.add_axes([0.2, 0.2, 0.1, 0.1])
-axes1.set_xlim(1, 2)
-axes1.set_ylim(0,400)
-axes1.set_xlabel("A")
-axes1.set_ylabel("B")
-axes1.set_title("Zoomed IN")
-axes2.plot(x, y)
 
-#Saving fig
-fig.savefig('newfig.png', bbox_inches='tight')
+#ONE DIMENSIONAL
+"""
+fig, axes=plt.subplots(nrows=3, ncols=1)
+for ax in axes:
+    ax.plot(x, y)
+"""
+#axes[0].plot(x,y)
+#axes[1].plot(a,b)
 
+
+
+fig, axes= plt.subplots(nrows=2, ncols=2)
+axes[0][0].plot(x, y)
+axes[0][1].plot(x, y)
+axes[1][1].plot(a, b)
+axes[1][0].set_ylabel("Y Label-Empty plot 1.0")
+axes[1][1].set_title("Exponential Plot 1.1")
+fig.suptitle("Subplots Demo Figure Level", fontsize=18)
+plt.tight_layout()
+
+fig.savefig("newsubplot.png", bbox_inches='tight')
 plt.show()
