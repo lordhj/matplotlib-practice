@@ -9,8 +9,8 @@ y=2*x
 
 fig=plt.figure()
 ax=fig.add_axes([0, 0, 1, 1])
-ax.plot(x,x, label="X v/s X")
-ax.plot(x,x**2, label="X v/s X^2")
-ax.legend()
-
+lines=ax.plot(x,x, color="purple", lw=2)
+lines[0].set_dashes([1,2,1,2,10,2])
+#ax.plot(x, x+1, color="#650dbd", lw=3, ls="-.")
+ax.plot(x, x+1, color='green', lw=2, marker='o', markerfacecolor='red', markeredgewidth=4, markeredgecolor='orange')
 plt.show()
